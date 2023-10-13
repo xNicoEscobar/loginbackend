@@ -1,5 +1,4 @@
 import { Router } from "express";
-import ProductManager from "../dao/database/productManager.js";
 import CartManager from "../dao/database/cartManager.js";
 import publicRoutes from "../middlewares/publicRoutes.js";
 import privateRoutes from "../middlewares/privateRoutes.js"

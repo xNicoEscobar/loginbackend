@@ -4,7 +4,8 @@ import mongoose from "mongoose";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import userRouter from './routes/userRouter.js'
-import initEvents from "./socket/index.js";
+import initializePassport from "./config/passport.congif.js";
+import passport from "passport";
 
 // Instanciamos express
 const app = express();
