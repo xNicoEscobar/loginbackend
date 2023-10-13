@@ -1,10 +1,10 @@
-import express from "express";
-import handlebars from "express-handlebars";
+import handlebars from 'express-handlebars';
+import { Server } from "socket.io";
 import mongoose from "mongoose";
-import MongoStore from "connect-mongo";
 import session from "express-session";
-import viewsRouter from "./routes/viewsRouter.js";
-import userRouter from "./routes/userRouter.js";
+import MongoStore from "connect-mongo";
+import userRouter from './routes/userRouter.js'
+import initEvents from "./socket/index.js";
 
 // Instanciamos express
 const app = express();
@@ -36,7 +36,8 @@ app.set('views', './src/views');
 app.set('view engine', 'handlebars');
 
 // Funcamos la app :)
-app.listen(8080, () => console.log('👾 funcando 👾'));
+const httpServer = app.listen(8080, () => console.log('👾 funcando 👾'));
+const socketServer = new Server(httpServer);
 
 // Configuramos routers
 app.use('/api', userRouter);
